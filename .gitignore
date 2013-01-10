@@ -35,3 +35,10 @@ dwsync.xml
 intermediate
 publish
 .idea
+
+# Codeigniter specific
+*/config/development
+*/logs/log-*.php
+*/logs/!index.html
+*/cache/*
+*/cache/!index.html

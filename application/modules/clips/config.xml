@@ -1,0 +1,15 @@
+<section name="clips" >
+	<table name="clips">
+		<field name="id" 			type="int" 		increment="true"  pk="true"  hidden="true" />
+		<field name="title" 		type="varchar" length="255"		label="Title" required="true" />
+		<field name="code" 			type="text" label="Code" required="true" />
+		<field name="description" 	type="text" label="Description" />			
+		<field name="active"        type="boolean" default="1" label="Active" />
+		<field name="updated" 		type="timestamp" hidden="true" default="CURRENT_TIMESTAMP" />
+		<field name="created" 		type="timestamp" hidden="true" />
+	</table>
+	<admin title="name,username">
+		<heading>Clips</heading>
+		<info>Manage clips</info>
+	</admin>
+</section>

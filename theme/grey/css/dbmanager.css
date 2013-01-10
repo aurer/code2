@@ -1,0 +1,125 @@
+#dbmanager{
+	padding: 10px 0;
+}
+table.db-manager{
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 2em;
+}
+
+table.db-manager th,
+table.db-manager td{
+	text-align: left;
+	padding: 5px 10px;
+}
+table.db-manager tbody td{
+	border: 1px solid #ddd;
+	background: #f1f1f1;
+}
+table.db-manager tr:nth-child(odd) td{
+	background: #f6f6f6;
+}
+table.db-manager tr .name{
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #222;
+}
+table.db-manager tr .action{
+	width:20%;
+	text-align: center;
+}
+table.db-manager tr .status{
+	width: 10%;
+	text-align: center;
+	font-weight: bold;
+}
+table.db-manager tr .info{
+	width: 40%;
+}
+@-webkit-keyframes 'GreenToWhite' {
+	0%{
+		background-color: #d0fea1;
+	}
+	100%{
+		background: #fff;
+	}
+}
+@-webkit-keyframes 'GreenToGrey' {
+	0%{
+		background-color: #d0fea1;
+	}
+	100%{
+		background: #f6f6f6;
+	}
+}
+table.db-manager tr td.status{
+	color: #080;
+}
+table.db-manager tr.error td.status{
+	''color: #800;
+}
+table.db-manager tr.checked-ok td{
+	-webkit-animation: GreenToWhite 5s;
+}
+table.db-manager tr.checked-ok:nth-child(odd) td{
+	-webkit-animation: GreenToGrey 5s;
+}
+table.db-manager tr.error td{
+	background-color: #fe3a58;
+	color: #fff;
+}
+
+#dbmanager div.errors{
+	padding: 0 10px;
+	border: 1px solid #fe9696;
+	background-color: #ffebeb;
+}
+
+#dbmanager p.error{
+	color: #a40000;
+	font-size: 110%;
+	font-weight: bold;
+}
+
+#dbmanager div.errors ul{
+	padding: 0 0 0 20px;
+	margin: 10px 0;
+}
+
+#dbmanager div.errors ul li{
+	list-style: circle;
+}
+#dbmanager p.success{
+	color: #235400;
+	border: 1px solid #98d18c;
+	font-weight: bold;
+	padding: 5px 15px;
+	background-color: #ecfedc;
+}
+
+table.db-manager .restore{
+	width: 310px;
+	text-align: center;
+}
+table.db-manager .backups{
+	width: 120px;
+	text-align: center;
+}
+table.db-manager td.backups .count{
+	font-weight: bold;
+	background: #eee;
+	padding: 2px 8px;
+	border: 1px solid #ccc;
+}
+table.db-manager td.backups[rel="0"] .count{
+	background-color: #ebdddd;
+	border-color: #dfb9b9;
+	color: #7f1a1a;
+}
+table.db-manager td.backups a.btn{
+	margin-left: 10px;
+}
+
+table.db-manager .btn{
+	padding:3px 10px;
+}

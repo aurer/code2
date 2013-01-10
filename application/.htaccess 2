@@ -1,0 +1,4 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteCond $1 !^(public|assets|favicon\.ico|robots\.txt|index\.php) [NC]
+RewriteRule ^(.*)$ /index.php/$1 [L]

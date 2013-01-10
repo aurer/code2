@@ -1,0 +1,126 @@
+/* @override http://code2.local/assets/css/layout.css */
+
+#page{
+	padding-bottom: 20px;
+}
+#container{
+	width: 90%;
+	max-width: 960px;
+	margin: 0 auto;
+}
+#nav1{
+	background: url(../gfx/drop-shadow.png) no-repeat center bottom;
+	overflow: hidden;
+	padding: 1px 0;
+	margin-top:20px;
+}
+#nav1 ul{
+	width: auto;
+	margin: 0 auto;
+	display: table;
+}
+#nav1 li{
+	display: table-cell;	
+	background: url(../gfx/nav-seperator.png) no-repeat right bottom;
+}
+#nav1 li:first-child a{
+	background: url(../gfx/nav-seperator.png) no-repeat left bottom;	
+}
+#nav1 li a{
+	display:block;
+	color:#666;
+	text-decoration:none;
+	padding: 16px 20px 11px 30px;
+	margin-right: 10px;
+	/font-weight: bold;
+	font-size: 1.2em;
+	-webkit-transition: color .15s;
+	-moz-transition: color .15s;
+}
+#nav1 li a:hover,
+#nav1 li a:focus{
+	color: #269991;
+	outline: none;
+}
+
+#nav1 li.active{ background: url(../gfx/nav-shadow-right.png) no-repeat bottom right; }
+
+#nav1 li.active a{ background: url(../gfx/nav-shadow-left.png) no-repeat bottom left; color:#269991; }
+
+#main{
+	float: left;
+	width: 69%;
+	padding-right: 1%;
+	margin-top: 20px;
+	background: url(../gfx/vertical-border.png) repeat-y top right;
+}
+#main > .inner{
+	padding: 0 15px 0 0;
+}
+.actions{
+	padding: 0 10px 10px 0;
+	margin: 0 0 20px;
+}
+#clips{
+	padding:10px 10px 10px 5px;
+	margin-right: -1px;
+	overflow: hidden;
+}
+#clips ol{
+	margin: 0 10px 0 0;
+	padding: 0;
+	float: left;
+	display: block;
+	width: 100%;
+}
+#clips li{
+	float: left;
+	width: 100%;
+	margin: 0 0 1.4em;
+	list-style: none;
+}
+#clips .clip-title{
+	margin: 0;
+	display: inline;
+}
+#secondary{
+	width: 30%;
+	float: right;
+	margin-top: 20px;
+}
+#secondary .inner{
+	padding: 0 10px;
+}
+#secondary h2{
+	margin: 0;
+}
+#secondary #tags{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#filter{
+	float:right;
+	display: inline;
+}
+#footer{
+	width: 100%;
+	background-image: -webkit-gradient(linear, 0 0, 0 10, from(rgba(0,0,0,0.15)), to(rgba(0,0,0,0.0)));
+	overflow: hidden;
+	border-top: 1px solid #111;
+	background: url(../gfx/tiles.png) fixed 0 0;
+}
+#footer .inner{
+	width: 90%;
+	max-width: 960px;
+	clear: both;
+	margin: 0 auto;
+}
+.one-column #main{
+	width: 100%;
+	background: none;
+}
+.one-column #secondary{
+	width: 100%;
+	clear: left;
+}

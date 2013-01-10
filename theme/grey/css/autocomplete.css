@@ -1,0 +1,45 @@
+.autocomplete-w1 {
+    nowhitespace: afterproperty;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 8px 0 0 7px;
+    /* IE6 fix: */ _background:none; _margin:0;
+    font-weight: bold;
+}
+.autocomplete {
+	border: 1px solid #fff;
+    nowhitespace: afterproperty;
+    background: #fff;
+    cursor: default;
+    text-align: left;
+    max-height: 350px;
+    overflow: auto;
+    margin: -6px 6px 6px -6px;
+    
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+    
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    color: #333;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    /* IE6 specific: */ _height:350px;  _margin:0; _overflow-x:hidden; ;
+}
+.autocomplete .selected { 
+	background: #269991;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#444), to(#333));
+   	background: -webkit-linear-gradient(top, #444, #333);
+   	background: -moz-linear-gradient(top, #444, #333);
+   	background: -o-linear-gradient(top, #444, #333);
+   	background: -ms-linear-gradient(top, #444, #333);
+	background: linear-gradient(top, #444, #333);
+	color: #ccc;
+}
+.autocomplete div {
+    padding: 3px 5px;
+    white-space: nowrap;
+}
+.autocomplete strong { color: #26939A; }
+.autocomplete .selected strong { color: #ccc; }

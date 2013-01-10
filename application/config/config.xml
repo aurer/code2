@@ -1,0 +1,107 @@
+<config name="CMS3" encoding="UTF-8" >
+
+	<section name="clips" >
+		<table name="clips">
+			<field name="id" 			type="int" 		increment="true"  pk="true"  hidden="true" />
+			<field name="title" 		type="varchar" length="255"		label="Title" required="true" />
+			<field name="code" 			type="text" label="Code" required="true" />
+			<field name="description" 	type="text" label="Description" />
+			<field name="private"		type="boolean" label="Private clip" default="0" />
+			<field name="author"		type="int"	label="Author" />
+			<field name="active"        type="boolean" default="1" label="Active" />
+			<field name="updated" 		type="timestamp" hidden="true" default="CURRENT_TIMESTAMP" />
+			<field name="created" 		type="timestamp" hidden="true" />
+		</table>
+		<admin title="name,username">
+			<heading>Clips</heading>
+			<info>Manage clips</info>
+		</admin>
+	</section>
+	
+	<section name="tags" >
+		<table name="tags">
+			<field name="id" 			type="int" 		increment="true" pk="true" hidden="true" />
+			<field name="title" 		type="varchar" length="255"		label="Title" required="true" />
+			<field name="clip_id" 		type="int" label="Clip ID" required="true" />
+			<field name="category" 		type="varchar" length="128" label="Category" />
+			<field name="active"        type="boolean" default="1" label="Active" />
+			<field name="updated" 		type="timestamp" hidden="true" default="CURRENT_TIMESTAMP" />
+			<field name="created" 		type="timestamp" hidden="true" />
+		</table>
+		<admin title="name,username">
+			<heading>Tags</heading>
+			<info>Manage clips</info>
+		</admin>
+	</section>
+	
+	<section name="hits" >
+		<table name="hits">
+			<field name="id" 			type="int" 		increment="true" pk="true" hidden="true" />
+			<field name="item_id" 		type="int" label="Item ID" required="true" />
+			<field name="section" 		type="varchar" length="255" label="Section" required="true" />
+			<field name="hits" 			type="int" label="Item ID" default="0" />
+			<field name="updated" 		type="timestamp" hidden="true" default="CURRENT_TIMESTAMP" />
+			<field name="created" 		type="timestamp" hidden="true" />
+		</table>
+		<admin title="name,username">
+			<heading>Hits</heading>
+			<info>Manage clips</info>
+		</admin>
+	</section>	
+	
+	<section name="feedback" >
+		<table name="feedback">
+			<field name="id" 			type="int" 		increment="true" pk="true" hidden="true" />
+			<field name="name" 			type="varchar" length="256"		label="Name" required="true" />
+			<field name="email" 		type="varchar" length="256" label="Email" required="true" />
+			<field name="feedback" 		type="text" label="Feedback Message" required="true" />
+			<field name="user_agent" 	type="varchar" length="256" label="User Agent" />
+			<field name="updated" 		type="timestamp" hidden="true" default="CURRENT_TIMESTAMP" />
+			<field name="created" 		type="timestamp" hidden="true" />
+		</table>
+		<admin title="name,username">
+			<heading>Tags</heading>
+			<info>Manage clips</info>
+		</admin>
+	</section>
+	
+	<section name="users" >
+		<table name="users">
+			<field name="id" 			type="int" 		increment="true" pk="true" hidden="true" />
+			<field name="username" 		type="varchar" length="256"		label="Userame" required="true" />
+			<field name="email" 		type="varchar" length="256" label="Email" required="true" />
+			<field name="password" 		type="text" label="Password" required="true" />
+			<field name="updated" 		type="timestamp" hidden="true" default="CURRENT_TIMESTAMP" />
+			<field name="created" 		type="timestamp" hidden="true" />
+		</table>
+		<admin title="name,username">
+			<heading>Users</heading>
+			<info>Website users</info>
+		</admin>
+	</section>
+	
+	
+	<view name="clips_vw" table="clips"><![CDATA[
+		SELECT c.*,
+			CASE WHEN h.hits IS NULL THEN 0 ELSE h.hits END AS hits
+		FROM clips c
+		LEFT JOIN hits h
+		  ON h.item_id = c.id AND h.section='clips'
+		WHERE c.active = 1 AND c.private=0
+		GROUP BY c.title;	
+	]]></view>
+	
+	<view name="tags_vw" table="tags"><![CDATA[
+		SELECT t.*,
+			CASE WHEN h.hits IS NULL THEN 0 ELSE h.hits END AS hits
+		FROM tags t
+		LEFT JOIN hits h
+			ON h.item_id = t.id AND h.section = 'tags'
+		JOIN clips c
+			ON c.id = t.clip_id
+			AND c.private = 0
+		WHERE t.active=1
+		GROUP BY t.title;
+	]]></view>
+	
+</config>

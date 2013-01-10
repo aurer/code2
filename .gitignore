@@ -38,6 +38,7 @@ publish
 
 # Codeigniter specific
 */config/development
+*/config/production
 */logs/log-*.php
 */logs/!index.html
 */cache/*

@@ -7,10 +7,6 @@ class Clips extends CI_Controller {
         $this->load->model('clip_model');
         $this->load->model('tags/tag_model');
         $this->load->model('hit_model');
-        //redirect('clips', 'refresh');
-        //$this->index();
-	    //$this->output->_display();
-	    //exit();
     }
     
 	public function index()

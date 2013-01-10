@@ -20,13 +20,13 @@ class Xml
 		/* Instantiate CI and load the config */
 		$this->CI =& get_instance();
 		$this->CI->config->load('dbmanager');
-		
-		/* Setup paths for the compiled config */
-		if(strpos($this->CI->config->item('config_xml'), '/') === FALSE){
-			$this->_config_file = APPPATH."config/".$this->CI->config->item('config_xml');
-		} else {
-			$this->_config_file = APPPATH.$this->CI->config->item('config_xml');
+
+		// Look first in environment config directory then fall back to main config directory
+		$this->_config_file = $this->_config_file = APPPATH."config/".ENVIRONMENT."/".$this->CI->config->item('config_xml');
+		if( !file_exists($this->_config_file) ){
+			$this->_config_file = $this->_config_file = APPPATH."config/".$this->CI->config->item('config_xml');
 		}
+
 		$this->_compile_dir = APPPATH.$this->CI->config->item('compile_dir');
 		
 		$extension = end(explode('.', $this->CI->config->item('config_xml')));
